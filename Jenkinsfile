@@ -18,10 +18,15 @@ pipeline {
         }
         stage("deploy to Nginx") {
             steps {
-                sh """
+                sshagent(['jenkins-ssh-key']){
+                    
+                    sh """
                     scp -r * ubuntu@52.90.61.191:/var/www/html
                     ssh ubuntu@52.90.61.191 'sudo systemctl restart nginx'
-                """
+                    """
+                }
+
+                
             }
         }
 
