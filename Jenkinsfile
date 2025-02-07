@@ -21,8 +21,8 @@ pipeline {
                 sshagent(['jenkins-ssh-key']){
 
                     sh """
-                    scp -r * ubuntu@44.203.148.147:/var/www/html
-                    ssh ubuntu@52.90.61.191 'sudo systemctl restart nginx'
+                    scp -vvv -o StrictHostKeyChecking=no -r * ubuntu@44.203.148.147:/var/www/html
+                    ssh -vvv -o StrictHostKeyChecking=no ubuntu@52.90.61.191 'sudo systemctl restart nginx'
                     """
                 }
 
