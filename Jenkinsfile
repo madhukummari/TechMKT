@@ -8,7 +8,7 @@ pipeline {
     stages{
         stage("checkout code") {
             steps {
-                git url: "https://github.com/madhukummari/TechMKT.git", branch: "master"
+                git url: "https://github.com/madhukummari/TechMKT.git" //, branch: "master"
             }
         }
         stage("test phase") {
